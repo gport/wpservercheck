@@ -39,6 +39,9 @@
 	if(!$link || mysql_error()) {
     		    	
 	   echo '<b style="color: red">Could not connect to the specified mySQL server, please check your credentials.</b><br/>';
+
+	   $sqlsupport = false;
+	   $sqlmessage = 'Please ask your hosting company to upgrade to mySQL version 5.0 or higher.';
 	    	
     } else {
 	    
