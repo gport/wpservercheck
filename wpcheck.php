@@ -31,19 +31,20 @@
 	echo '<h2>mySQL Version Check</h2>';
 
 	$mysqlserver = 'localhost';
-	$mysqluser = 'dijkgrp_vandijk';
-	$mysqlpass = 'D7pRE5re';	
+	$mysqluser = 'username';
+	$mysqlpass = 'password';	
 
-	$link = mysql_connect($mysqlserver,$mysqluser,$mysqlpass);
+	$link = @mysql_connect($mysqlserver,$mysqluser,$mysqlpass);
 
-	if(!$link) {
-    	
-    	echo '<b>Could not connect to the specified mySQL server, please check your credentials.</b><br/>';
+	if(!$link || mysql_error()) {
+    		    	
+	   echo '<b style="color: red">Could not connect to the specified mySQL server, please check your credentials.</b><br/>';
+	    	
     
     } else {
 	    
 		echo 'The current mySQL version is: ' . mysql_get_server_info() . '.<br/>';
-	
+
 		if(mysql_get_server_info() > '5.0') {
 			
 			$sqlsupport = true;
@@ -66,6 +67,8 @@
 					
 						
 		}
+
+		mysql_close($link);
 		
 	}
 	
