@@ -40,7 +40,6 @@
     		    	
 	   echo '<b style="color: red">Could not connect to the specified mySQL server, please check your credentials.</b><br/>';
 	    	
-    
     } else {
 	    
 		echo 'The current mySQL version is: ' . mysql_get_server_info() . '.<br/>';
